@@ -11,11 +11,12 @@ from linebot.models import (
 )
 # line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
 # handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+app = Flask(__name__)
+
 @app.route("/")
 def hello_world():
     return "hello world!"
 
-app = Flask(__name__)
 
 if __name__ == "__main__":
     app.run()
