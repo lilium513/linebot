@@ -17,6 +17,10 @@ app = Flask(__name__)
 def hello_world():
     return "hello world!"
 
+@app.route("/", methods=['POST'])
+def hello_world():
+    return "hello world!"
+
 
 if __name__ == "__main__":
     app.run()
