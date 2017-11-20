@@ -19,12 +19,12 @@ def hello():
 
 @app.route("/", methods=['POST'])
 def hello_world():
-    body = request.get_data()
-
+    body = request.get_data(as_text=True)
+    receive_json = json.loads(body)
+    message = receive_json['events'][0]['message']['text']
+    line_bot_api.reply_message(receive_json['events'][0]['replyToken'], TextSendMessage(text = response))
     # line_bot_api.reply_message(
     #     event.reply_token,
-    #     TextSendMessage(text=event.message.text))
-    print (type(body))
     return body
 
 
