@@ -9,8 +9,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
-line_bot_api = LineBotApi('s6zOrp1BRjZmGqhcTkstw1welbN/UnxxAENoEIEk/n2KWsiPhVZdqmCuaTYbEQXCIxqrp8JK9OLCLNdONAfyGyBMiNtJInGD1SnJO1fHUazwlSTPHO6Hn2hGNgt6fxnLuwDOLhz1Sq1G0LRf5K2ogAdB04t89/1O/w1cDnyilFU=
-')
+line_bot_api = LineBotApi('s6zOrp1BRjZmGqhcTkstw1welbN/UnxxAENoEIEk/n2KWsiPhVZdqmCuaTYbEQXCIxqrp8JK9OLCLNdONAfyGyBMiNtJInGD1SnJO1fHUazwlSTPHO6Hn2hGNgt6fxnLuwDOLhz1Sq1G0LRf5K2ogAdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('1ba028de2c5d4d8797a00fd5df0ab44f')
 app = Flask(__name__)
 
