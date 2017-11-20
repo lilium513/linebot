@@ -9,8 +9,10 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
-line_bot_api = LineBotApi('s6zOrp1BRjZmGqhcTkstw1welbN/UnxxAENoEIEk/n2KWsiPhVZdqmCuaTYbEQXCIxqrp8JK9OLCLNdONAfyGyBMiNtJInGD1SnJO1fHUazwlSTPHO6Hn2hGNgt6fxnLuwDOLhz1Sq1G0LRf5K2ogAdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('1ba028de2c5d4d8797a00fd5df0ab44f')
+channel_secret = os.environ['LINE_CHANNEL_SECRET']
+channel_access_token = os.environ['LINE_CHANNEL_ACCESS_TOKEN']
+line_bot_api = LineBotApi(channel_access_token)
+handler = WebhookHandler(channel_secret)
 app = Flask(__name__)
 
 @app.route("/")
@@ -21,6 +23,7 @@ def hello():
 def hello_world():
     body = request.get_data(as_text=True)
     receive_json = json.loads(body)
+    print(receive_json)
     response = receive_json['events'][0]['message']['text']
     line_bot_api.reply_message(receive_json['events'][0]['replyToken'], TextSendMessage(text = response))
     # line_bot_api.reply_message(
