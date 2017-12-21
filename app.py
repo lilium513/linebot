@@ -43,27 +43,24 @@ def routing():
             alt_text='Image carousel template',
             template=ImageCarouselTemplate(
                 columns=[
+                     CarouselColumn(text='hoge2', title='fuga2', actions=[
+                PostbackTemplateAction(
+                    label='ping with text', data='ping',
+                    text='ping'),
+                MessageTemplateAction(label='Translate Rice', text='米')
+            ]),
                     ImageCarouselColumn(
-                        image_url='https://images-fe.ssl-images-amazon.com/images/I/51bZA91ZWqL.jpg',
-                        actions=[
-                        PostbackTemplateAction(
-                            label='ping with text', data='ping',
-                            text='ping'),
-                        MessageTemplateAction(label='Translate Rice', data='rice is pushed', text='米')
-                    ]
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://images-fe.ssl-images-amazon.com/images/I/51bZA91ZWqL.jpg',
+                        image_url='https://example.com/item2.jpg',
                         action=MessageTemplateAction(
                             label='message2',
                             text='message text2'
                         )
                     ),
                     ImageCarouselColumn(
-                        image_url='https://images-fe.ssl-images-amazon.com/images/I/51bZA91ZWqL.jpg',
+                        image_url='https://example.com/item3.jpg',
                         action=URITemplateAction(
                             label='uri1',
-                            uri='https://www.amazon.co.jp/gp/product/B00FR78X64'
+                            uri='https://example.com/1'
                         )
                     )
                 ]
