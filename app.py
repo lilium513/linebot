@@ -44,37 +44,25 @@ def routing():
     route = receive_json['events'][0]['message']['text']
 
 
-
-
-    line_bot_api.reply_message(
-        receive_json['events'][0]['replyToken'],
-        TemplateSendMessage(
-            alt_text='Image carousel template',
-            template=ImageCarouselTemplate(
-                columns=[
-                     CarouselColumn(text='hoge2', title='fuga2', actions=[
+    carousel_template = CarouselTemplate(columns=[
+            CarouselColumn(text='hoge1', title='fuga1', actions=[
+                URITemplateAction(
+                    label='Go to line.me', uri='https://line.me'),
+                PostbackTemplateAction(label='ping', data='ping')
+            ]),
+            CarouselColumn(text='hoge2', title='fuga2', actions=[
                 PostbackTemplateAction(
                     label='ping with text', data='ping',
                     text='ping'),
                 MessageTemplateAction(label='Translate Rice', text='米')
             ]),
-                    ImageCarouselColumn(
-                        image_url='https://example.com/item2.jpg',
-                        action=MessageTemplateAction(
-                            label='message2',
-                            text='message text2'
-                        )
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://example.com/item3.jpg',
-                        action=URITemplateAction(
-                            label='uri1',
-                            uri='https://example.com/1'
-                        )
-                    )
-                ]
-            )
-        )
+        ])
+        template_message = TemplateSendMessage(
+            alt_text='Carousel alt text', template=carousel_template)
+
+    line_bot_api.reply_message(
+        receive_json['events'][0]['replyToken'],
+        template_message
     )
 # line_bot_api.reply_message(
     #     event.reply_token,
