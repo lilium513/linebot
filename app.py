@@ -54,7 +54,7 @@ def routing():
                 PostbackTemplateAction(
                     label='ping with text', data='ping',
                     text='ping'),
-                MessageTemplateAction(label='Translate Rice', text='米')
+                MessageTemplateAction(label='Translate Rice', text='米',data='rice')
             ]),
         ])
     template_message = TemplateSendMessage(
