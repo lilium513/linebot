@@ -53,7 +53,7 @@ def routing():
             CarouselColumn(text='hoge2', title='fuga2', actions=[
                 PostbackTemplateAction(
                     label='ping with text', data='ping',
-                    text='ping'),
+                    text='ピングー'),
                 MessageTemplateAction(label='Translate Rice', text='米',data='rice')
             ]),
         ])
