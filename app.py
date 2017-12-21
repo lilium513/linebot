@@ -13,9 +13,18 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    TemplateSendMessage, ImageCarouselTemplate, ImageCarouselColumn, \
-    PostbackTemplateAction, MessageTemplateAction, URITemplateAction
+    MessageEvent, TextMessage, TextSendMessage,
+    SourceUser, SourceGroup, SourceRoom,
+    TemplateSendMessage, ConfirmTemplate, MessageTemplateAction,
+    ButtonsTemplate, ImageCarouselTemplate, ImageCarouselColumn, URITemplateAction,
+    PostbackTemplateAction, DatetimePickerTemplateAction,
+    CarouselTemplate, CarouselColumn, PostbackEvent,
+    StickerMessage, StickerSendMessage, LocationMessage, LocationSendMessage,
+    ImageMessage, VideoMessage, AudioMessage, FileMessage,
+    UnfollowEvent, FollowEvent, JoinEvent, LeaveEvent, BeaconEvent
 )
+
+
 channel_secret = os.environ['LINE_CHANNEL_SECRET']
 channel_access_token = os.environ['LINE_CHANNEL_ACCESS_TOKEN']
 line_bot_api = LineBotApi(channel_access_token)
