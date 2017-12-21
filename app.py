@@ -57,8 +57,8 @@ def routing():
                 MessageTemplateAction(label='Translate Rice', text='米')
             ]),
         ])
-        template_message = TemplateSendMessage(
-            alt_text='Carousel alt text', template=carousel_template)
+    template_message = TemplateSendMessage(
+        alt_text='Carousel alt text', template=carousel_template)
 
     line_bot_api.reply_message(
         receive_json['events'][0]['replyToken'],
