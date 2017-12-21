@@ -41,7 +41,7 @@ def routing():
     body = request.get_data(as_text=True)
     receive_json = json.loads(body)
     print(body)
-    route = receive_json['events'][0]['message']['text']
+    #route = receive_json['events'][0]['message']['text']
 
 
     carousel_template = CarouselTemplate(columns=[
