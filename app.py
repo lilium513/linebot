@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 from argparse import ArgumentParser
-
+import json
 from flask import Flask, request, abort
 
 from linebot import *
