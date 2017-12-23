@@ -34,7 +34,6 @@ def prizeJudge(cards): #役を決める
     return cards
 
 def pairJudge(nums): #1,2,3,4,5 → or,tp,tc,fh,fc ソート済みの数列がくる
-
     pairs=0
     three=0
     four=0
@@ -68,5 +67,8 @@ def pairJudge(nums): #1,2,3,4,5 → or,tp,tc,fh,fc ソート済みの数列が�
 
 def straightJudge(nums):
     return
-def flushJudge(marks):
-    return
+def flushJudge(marks): #マークが同じかを確認
+    if marks[0]==marks[-1]:
+        return True
+    else:
+        return False
