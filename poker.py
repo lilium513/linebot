@@ -1,7 +1,16 @@
 import random
 marks=list(range(0,4)) #マーク 0から c,h,d,s
 nums=list(range(1,14))
-
+RSF=10
+SF=9
+FC=8
+FH=7
+FL=6
+ST=5
+TC=4
+TP=3
+OP=2
+HC=1
 
 def getCards():
     temp_cards=random.sample(list(range(52)), 10)
@@ -20,18 +29,41 @@ def prizeJudge(cards): #役を決める
     nums=[]
     mark_same=False
 
-    print("marks:"+str(marks))
+    #print("cards:"+str(cards))
 
     for card in cards:
         marks.append(card[0])
         nums.append(card[1])
     nums.sort()
     marks.sort()
-    if marks[0]==marks[-1]:
-        mark_same=True
-        print("marks is same :")
-    print("marks after :"+str(marks))
-    return cards
+
+    mark=flushJudge(marks) #フラッシュ判定
+    pair=pairJudge(nums) #ペア系判定
+    straight=straightJudge(nums) #ストレート判定
+
+    if straight==2 and mark==1: #rsf
+        return RSF
+    elif straight==1 and mark==1:
+        return SF
+    elif pair==5:
+        return FC
+    elif pair==4:
+        return FH
+
+    elif mark==1:
+        return FL
+
+    elif straight>0:
+        return ST
+    elif pair==3:
+        return TC
+    elif pair==2:
+        return TP
+    elif pair==1:
+        return OP
+
+    #print("marks after :"+str(marks))
+    return HC
 
 def pairJudge(nums): #1,2,3,4,5 → or,tp,tc,fh,fc ソート済みの数列がくる
     pairs=0
