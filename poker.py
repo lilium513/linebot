@@ -65,10 +65,19 @@ def pairJudge(nums): #1,2,3,4,5 → or,tp,tc,fh,fc ソート済みの数列が�
 
     return 0 #ペア系の役はない
 
-def straightJudge(nums):
-    return
+def straightJudge(nums): #普通のストレート  1  10~13,1のストレート  2 なし  0 の三種
+    i=0
+    hs=[1,10,11,12,13]
+    s=[0,1,2,3,4]
+    temp=nums[0]
+    s=list(map(lambda x:x+temp,s))
+    if s==nums:
+        return 1
+    if nums==hs:
+        return 2
+    return 0
 def flushJudge(marks): #マークが同じかを確認
     if marks[0]==marks[-1]:
-        return True
+        return 1
     else:
-        return False
+        return 0
