@@ -39,7 +39,7 @@ def routing():
     receive_json = json.loads(body)
     print(body)
     cards=poker.getCards()[0:5]
-    cards=convertTupleToCards(cards)
+    cards=poker.convertTupleToCards(cards)
     #route = receive_json['events'][0]['message']['text']
 
 
