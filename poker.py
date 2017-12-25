@@ -23,6 +23,22 @@ def getCards():
         cards.append((mark,num))
 
     return cards
+def convertTupleToCards(tus):
+    mongon="あなたのカードは"
+    for tu in tus:
+        if tu[0]==0:
+            mongon+="クローバーの"
+        elif tu[0]==1:
+            mongon+="ハートの"
+        elif tu[0]==2:
+            mongon+="ダイヤの"
+        elif tu[0]==3:
+            mongon+="スペードの"
+        mongon+=str(tu[1])
+        mongon+="\n"
+    mongon+="です!"
+    return cards
+
 
 def prizeJudge(cards): #役を決める
     marks=[]
