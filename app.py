@@ -54,7 +54,7 @@ def routing():
             ]),
             CarouselColumn(text='hoge2', title='fuga2', actions=[
                 PostbackTemplateAction(
-                    label='ping with text', data='ping',
+                    label=str(cards), data='ping',
                     text='ピングー'),
                 MessageTemplateAction(label=str(cards), text=str(cards),data='rice')
             ]),
