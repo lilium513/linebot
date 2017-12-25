@@ -37,7 +37,7 @@ def convertTupleToCards(tus):
         mongon+=str(tu[1])
         mongon+="\n"
     mongon+="です!"
-    return cards
+    return mongon
 
 
 def prizeJudge(cards): #役を決める
