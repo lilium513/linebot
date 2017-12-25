@@ -39,7 +39,7 @@ def routing():
     receive_json = json.loads(body)
     print(body)
     cards = poker.getCards()[0:5]
-    prize = prizeJudge(cards)
+    prize = poker.prizeJudge(cards)
     p=""
     if prize==poker.RSF:
         p="ロイヤルストレートフラッシュ"
