@@ -33,10 +33,6 @@ handler = WebhookHandler(channel_secret)
 app = Flask(__name__)
 #ここらへんでルーティングする
 
-@app.route("/")
-def hello():
-    return "hello world!"
-
 @app.route("/", methods=['POST'])
 def routing():
     body = request.get_data(as_text=True)
@@ -72,7 +68,7 @@ def routing():
     )
 # line_bot_api.reply_message(
     #     event.reply_token,
-    return body
+    #return body
 
 
 if __name__ == "__main__":
