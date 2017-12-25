@@ -4,6 +4,7 @@ import sys
 import tempfile
 from argparse import ArgumentParser
 import json
+import poker
 from flask import Flask, request, abort
 
 from linebot import (
@@ -41,6 +42,7 @@ def routing():
     body = request.get_data(as_text=True)
     receive_json = json.loads(body)
     print(body)
+    cards=poker.getCards()[0:5]
     #route = receive_json['events'][0]['message']['text']
 
 
@@ -54,7 +56,7 @@ def routing():
                 PostbackTemplateAction(
                     label='ping with text', data='ping',
                     text='ピングー'),
-                MessageTemplateAction(label='Translate Rice', text='米',data='rice')
+                MessageTemplateAction(label=str(cards), text=str(cards),data='rice')
             ]),
         ])
     template_message = TemplateSendMessage(
