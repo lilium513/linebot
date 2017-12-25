@@ -24,7 +24,8 @@ def getCards():
 
     return cards
 def convertTupleToCards(tus):
-    mongon="あなたのカードは"
+    tus.sort()
+    mongon="あなたのカードは\n"
     for tu in tus:
         if tu[0]==0:
             mongon+="♣"
