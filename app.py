@@ -38,29 +38,44 @@ def routing():
     body = request.get_data(as_text=True)
     receive_json = json.loads(body)
     print(body)
-    cards=poker.getCards()[0:5]
+    cards = poker.getCards()[0:5]
+    prize = prizeJudge(cards)
+    p=""
+    if prize==poker.RSF:
+        p="ロイヤルストレートフラッシュ"
+    if prize==poker.SF:
+        p="ストレートフラッシュ"
+    if prize==poker.FC:
+        p="フォーカード"
+    if prize==poker.FH:
+        p="フルハウス"
+    if prize==poker.FL:
+        p="フラッシュ"
+    if prize==poker.ST:
+        p="ストレート"
+    if prize==poker.TC:
+        p="スリーカード"
+    if prize==poker.TP:
+        p="ツーペア"
+    if prize==poker.OP:
+        p="ワンペア"
+    if prize==poker.HC:
+        p="豚"
+
     cards=poker.convertTupleToCards(cards)
+
     #route = receive_json['events'][0]['message']['text']
 
 
-    buttons_template = ButtonsTemplate(
-            title='Card itiran', text=str(cards), actions=[
-                URITemplateAction(
-                    label='Go to line.me', uri='https://line.me'),
-                PostbackTemplateAction(label='ping', data='ping'),
-                PostbackTemplateAction(
-                    label='ping with text', data='ping',
-                    text='ping'),
-                MessageTemplateAction(label='Translate Rice', text='米')
 
-            ])
-
-    template_message = TemplateSendMessage(
-        alt_text='button alt text', template=buttons_template)
+    # template_message = TemplateSendMessage(
+    #     alt_text='button alt text', template=buttons_template)
 
     line_bot_api.reply_message(
         receive_json['events'][0]['replyToken'],
-        template_message
+        [TextSendMessage(text=cards),
+        TextSendMessage(text="あなたの役は"+p+"です")]
+
     )
 # line_bot_api.reply_message(
     #     event.reply_token,
