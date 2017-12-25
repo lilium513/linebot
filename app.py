@@ -63,7 +63,7 @@ def routing():
     )
 # line_bot_api.reply_message(
     #     event.reply_token,
-    #return body
+    return body
 
 
 if __name__ == "__main__":
