@@ -27,16 +27,16 @@ def convertTupleToCards(tus):
     mongon="あなたのカードは"
     for tu in tus:
         if tu[0]==0:
-            mongon+="クローバーの"
+            mongon+="♣"
         elif tu[0]==1:
-            mongon+="ハートの"
+            mongon+="♥"
         elif tu[0]==2:
-            mongon+="ダイヤの"
+            mongon+="◆"
         elif tu[0]==3:
-            mongon+="スペードの"
+            mongon+="♠"
         mongon+=str(tu[1])
-        mongon+="\n"
-    mongon+="です!"
+        mongon+=" "
+    mongon+="\nです!"
     return mongon
 
 
