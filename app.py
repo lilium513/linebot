@@ -46,21 +46,19 @@ def routing():
     #route = receive_json['events'][0]['message']['text']
 
 
-    carousel_template = CarouselTemplate(columns=[
-            CarouselColumn(text='hoge1', title='fuga1', actions=[
+    buttons_template = ButtonsTemplate(
+            title='Card itiran', text=str(cards), actions=[
                 URITemplateAction(
                     label='Go to line.me', uri='https://line.me'),
-                PostbackTemplateAction(label='ping', data='ping')
-            ]),
-            CarouselColumn(text='hoge2', title='fuga2', actions=[
+                PostbackTemplateAction(label='ping', data='ping'),
                 PostbackTemplateAction(
-                    label=str(cards), data='ping',
-                    text='ピングー'),
-                MessageTemplateAction(label=str(cards), text=str(cards),data='rice')
-            ]),
-        ])
+                    label='ping with text', data='ping',
+                    text='ping'),
+                MessageTemplateAction(label='Translate Rice', text='米')
+            ])
+
     template_message = TemplateSendMessage(
-        alt_text='Carousel alt text', template=carousel_template)
+        alt_text='button alt text', template=buttons_template)
 
     line_bot_api.reply_message(
         receive_json['events'][0]['replyToken'],
