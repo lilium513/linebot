@@ -69,7 +69,7 @@ def routing():
 
 
     buttons_template = ButtonsTemplate(
-             actions=[
+            title='もう一回やる?', actions=[
                 PostbackTemplateAction(label='もう一回', data='ping')
             ])
     template_message = TemplateSendMessage(
