@@ -70,12 +70,9 @@ def routing():
 
     # template_message = TemplateSendMessage(
     #     alt_text='button alt text', template=buttons_template)
-  buttons_template = ButtonsTemplate(
-             actions=[
-                URITemplateAction(
-                MessageTemplateAction(label='もう一回', text='もう一回')
-            ])
-        template_message = TemplateSendMessage(
+    buttons_template = ButtonsTemplate(
+             actions=[URITemplateAction(MessageTemplateAction(label='もう一回', text='もう一回')]))
+    template_message = TemplateSendMessage(
             alt_text='Buttons alt text', template=buttons_template)
 
 
